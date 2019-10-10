@@ -8,7 +8,7 @@ Frontend          | React 16+
 Backend           | Spring Boot 2.1+, Java 8
 Security          | Spring Security, JWT
 Auth              | Local, Google, Facebook
-Database          | H2 Database in file based url: jdbc:h2:file:/blog-db;DB_CLOSE_DELAY=-1
+H2 Database       | In file based url: jdbc:h2:file:./blog-db;DB_CLOSE_DELAY=-1
 Persistence       | JPA 
 API Documentation | Swagger-UI
 Client Build      | npm, yarn, webpack
