@@ -15,6 +15,7 @@ Client Build      | npm, yarn, webpack
 Server Build      | Maven
 JUnit Test        | JUnit 4 Mockito
 frontend-maven-plugin | maven UI plugin for easy build creation
+Swagger UI        | http://localhost:8080/swagger-ui.html
 
 ## Getting Started
 
