@@ -14,7 +14,7 @@ API Documentation | Swagger-UI
 Client Build      | npm, yarn, webpack
 Server Build      | Maven
 JUnit Test        | JUnit 4 Mockito
-maven             | frontend-maven-plugin with maven UI plugin for easy build creation (executable jar)
+frontend-maven-plugin | maven UI plugin for easy build creation
 
 ## Getting Started
 
