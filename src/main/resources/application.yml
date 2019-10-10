@@ -1,0 +1,91 @@
+application:
+  datasource: # in addition to the standard spring.datasource properties
+    cachePrepStmts: true
+    prepStmtCacheSize: 250
+    prepStmtCacheSqlLimit: 2048
+    useServerPrepStmts: true
+  security:
+    jwt:
+      secret: 5867a8374e7c0f6284b177b48faf89e1c79d72d8
+      token-validity-in-seconds: 86400 # 24 hour
+      token-validity-in-seconds-for-remember-me: 2592000
+
+  oauth2:
+    authorizedRedirectUris:
+    - http://localhost:3000/oauth2/redirect
+    - myandroidapp://oauth2/redirect
+    - myiosapp://oauth2/redirect
+
+spring:
+  data:
+    jpa:
+      repositories:
+        bootstrap-mode: deferred
+  application:
+    name: Blog
+  profiles:
+    active: dev
+  devtools:
+    restart:
+      enabled: true
+    livereload:
+      enabled: true
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:h2:file:./blog-db;DB_CLOSE_DELAY=-1
+    username: sa
+    password:
+    #driver-class-name: org.h2.jdbcx.JdbcDataSource
+    #initialize: true
+  h2:
+    console:
+      enabled: true
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    database: H2
+    show-sql: false
+    format_sql: true
+    properties:
+      hibernate.id.new_generator_mappings: true
+      hibernate.cache.use_second_level_cache: false
+      hibernate.cache.use_query_cache: false
+      hibernate.generate_statistics: false
+    hibernate:
+      ddl-auto: none
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            clientId: 5014057553-8gm9um6vnli3cle5rgigcdjpdrid14m9.apps.googleusercontent.com
+            clientSecret: tWZKVLxaD_ARWsriiiUFYoIk
+            redirectUriTemplate: "{baseUrl}/oauth2/callback/{registrationId}"
+            scope:
+            - email
+            - profile
+          facebook:
+            clientId: 121189305185277
+            clientSecret: 42ffe5aa7379e8326387e0fe16f34132
+            redirectUriTemplate: "{baseUrl}/oauth2/callback/{registrationId}"
+            scope:
+            - email
+            - public_profile
+          github:
+            clientId: d3e47fc2ddd966fa4352
+            clientSecret: 3bc0f6b8332f93076354c2a5bada2f5a05aea60d
+            redirectUriTemplate: "{baseUrl}/oauth2/callback/{registrationId}"
+            scope:
+            - user:email
+            - read:user
+        provider:
+          facebook:
+            authorizationUri: https://www.facebook.com/v3.0/dialog/oauth
+            tokenUri: https://graph.facebook.com/v3.0/oauth/access_token
+            userInfoUri: https://graph.facebook.com/v3.0/me?fields=id,first_name,middle_name,last_name,name,email,verified,is_verified,picture
+  http:
+    log-request-details: true
+server:
+  port: 8080
+logging:
+  level:
+    web: debug

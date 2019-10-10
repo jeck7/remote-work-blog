@@ -1,0 +1,3 @@
+2019-09-02 15:00:05 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "POST" not found; SQL statement:
+select post0_.post_id as post_id1_2_, post0_.body as body2_2_, post0_.created_by as created_3_2_, post0_.created_date as created_4_2_, post0_.last_modified_by as last_mod5_2_, post0_.last_modified_date as last_mod6_2_, post0_.title as title7_2_, post0_.user_id as user_id8_2_ from post post0_ order by post0_.created_date desc limit ? [42102-197]
